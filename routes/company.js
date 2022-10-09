@@ -5,6 +5,8 @@ import { Company } from "../models/company.js";
 
 const router = express.Router();
 
+
+//route to find a movie using 3rd party API
 router.post('/find', async (req,res) => {
 
     try {
@@ -39,6 +41,7 @@ router.post('/add', async (req, res) => {
 })
 
 
+//sending data from the db
 router.get('/list', async (req, res) => {
     try {
         const result = await Company.findAll();

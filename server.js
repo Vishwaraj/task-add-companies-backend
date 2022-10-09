@@ -12,19 +12,27 @@ app.use(express.json());
 
 const PORT = 4000;
 
+
+//setting up server
 app.listen(PORT, () => {
     console.log('Server running on ' + PORT);
 })
 
+//testing connection
+db.authenticate()
+.then(() => console.log('DB Connected'))
+.catch((err) => console.log(err));
+
+
+//basic route for checking whether backend is connected
 app.get('/', async (req, res) => {
 res.status(200).send({msg: 'Hello from backend'});
 });
 
 
+//routing for companies route
 app.use('/companies', companyRouter);
 
 
-//testing connection;
-db.authenticate()
-.then(() => console.log('DB Connected'))
-.catch((err) => console.log(err));
+
+
